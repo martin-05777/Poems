@@ -1,0 +1,121 @@
+body {
+    background-image: url(bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%; /* Changed from 100vh to 100% */
+    margin: 0;
+    overflow: hidden;
+    font-family: serif; /* Fits a poetry theme well */
+}
+
+.container {
+    position: relative;
+    padding: 30px;
+}
+
+/* Hide the actual checkbox */
+#menu-toggle {
+    display: none;
+}
+
+/* --- The Hamburger Icon --- */
+.menu-icon {
+    width: 35px;
+    height: 22px; /* Pulls lines together */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1000;
+    position: relative;
+}
+
+.menu-icon span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: #333;
+    border-radius: 0px;
+    transition: 0.4s ease; /* Smooth X animation */
+}
+
+/* --- Link Styles --- */
+a.ab {
+    font-size: 30px;
+    text-decoration: none;
+    color: #444;
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: 0.3s ease;
+}
+
+a.ab:hover {
+    color: rgb(219, 188, 188); /* Fixed the rgb error */
+}
+
+/* --- The Menu Box --- */
+.menu-links {
+    display: none;
+    opacity: 0;
+    flex-direction: column;
+    
+    /* 1. Transparent background (The 'A' in RGBA is transparency) */
+    background-color: rgba(255, 255, 255, 0.4); 
+    
+    /* 2. The magic blur effect */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* Support for Safari */
+    
+    /* 3. Optional: Subtle border to make it pop against the BG */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    position: absolute;
+    top: 70px;
+    left: 30px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease;
+}
+
+/* --- Toggle Logic (When Checkbox is Checked) --- */
+
+/* Show the menu */
+#menu-toggle:checked ~ .menu-links {
+    display: flex;
+    opacity: 1;
+}
+
+/* Animation to X */
+#menu-toggle:checked + .menu-icon span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+#menu-toggle:checked + .menu-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle:checked + .menu-icon span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+.menu-header {
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(0, 0, 0, 0.4); /* Faded look for a "label" feel */
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Ensure the links under the header are spaced correctly */
+.menu-links .ab {
+    font-size: 35px; /* Keeps your big poetic font size */
+    margin-top: 10px;
+    display: block;
+}

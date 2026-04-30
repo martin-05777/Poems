@@ -1,0 +1,42 @@
+.ptext{
+    font-size: 30px;
+    text-decoration: none;
+    color: #000000;
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 260px;
+    border: 2em;
+    border: 0px, 10px, solid #55525285;
+    background-color: rgba(95, 91, 87, 0.74);
+    padding: 10px;
+    max-width: 600px;
+    text-align: center;
+    margin-left: 670px;
+    /* --- This is the magic line --- */
+    white-space: pre-wrap; 
+    
+    /* --- Your existing styles --- */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    color: #000000; /* Or white, depending on your BG */
+    text-align: left; /* Essential! Center-align will ruin the VSC spacing */
+    
+    /* --- Scrolling for long poems --- */
+    max-height: 500px; 
+    overflow-y: auto;
+    
+    /* --- Spacing --- */
+    padding: 40px;
+    margin-top: 100px;
+    display: block;
+}
+
+
+.ptext::-webkit-scrollbar {
+    width: 8px;
+}
+.ptext::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
